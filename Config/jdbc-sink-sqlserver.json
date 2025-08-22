@@ -1,0 +1,13 @@
+{
+  "name": "jdbc-sink-sqlserver",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "topics": "your_topic",
+    "connection.url": "jdbc:sqlserver://localhost:1433;databaseName=your_database",
+    "connection.user": "your_user",
+    "connection.password": "your_password",
+    "auto.create": "true",
+    "auto.evolve": "true",
+    "insert.mode": "insert"
+  }
+}

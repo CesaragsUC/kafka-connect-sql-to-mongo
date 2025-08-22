@@ -1,0 +1,13 @@
+{
+  "name": "myfleet_sink",
+  "config": {
+    "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "topics": "myfleet.carros",
+    "connection.uri": "mongodb://cesar:cesar@mongo:27017/FrotaReplica?retryWrites=true&loadBalanced=false&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256",
+    "database": "Carros_sink",
+    "collection": "Carros",
+    "schema.enable": "false"
+  }
+}

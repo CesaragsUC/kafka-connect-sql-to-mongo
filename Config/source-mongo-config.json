@@ -1,0 +1,15 @@
+{
+  "name": "myfleet_source",
+  "config": {
+    "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "connection.uri": "mongodb://cesar:cesar@mongo:27017/Frota?retryWrites=true&loadBalanced=false&serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256",
+    "database": "Frota",
+    "collection": "Carros",
+    "pipeline": "[{'$match': {'operationType': {'$in': ['insert', 'update', 'replace'], }}},{'$project': {'_id': 1,'fullDocument': 1,'ns': 1,}}]",
+    "publish.full.document.only": "true",
+    "topic.namespace.map": "{\"*\":\"myfleet.carros\"}",
+    "copy.existing": "true"
+  }
+}
